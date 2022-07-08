@@ -1,1 +1,34 @@
 ---
+name: "workflow"
+
+'on':
+  push:
+    branches:
+      - feat/equipo_0
+    tags:
+      - "*"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    name: "Integration"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout Code"
+        uses: "actions/checkout@v2"
+
+      - name: "Lint code"
+        run: |
+          echo "Linting repository"
+      - name: "Run unit tests"
+        run: |
+          echo "Running unit tests"
+                 name: Build and push
+      - name: "Docker build"                 
+        uses: docker/build-push-action@v3
+        with:
+          context: ./nginx/
+          push: false
+          tags: user/app:latest 
