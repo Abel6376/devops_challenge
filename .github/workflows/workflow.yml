@@ -4,7 +4,7 @@ name: "workflow"
 'on':
   push:
     branches:
-      - feat/equipo_0
+      - feat/patch-1
     tags:
       - "*"
   pull_request:
